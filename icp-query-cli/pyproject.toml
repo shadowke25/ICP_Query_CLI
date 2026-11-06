@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "icp-query-cli"
+version = "1.0.0"
+description = "工信部 ICP 备案查询命令行工具（面向渗透测试信息收集）"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "aiohttp>=3.9,<4",
+  "numpy>=1.21",
+  "Pillow>=9.0",
+  "PyYAML>=6.0",
+  "aiohttp-socks>=0.8",
+]
+
+[project.scripts]
+icp-query = "icp_query_cli.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+icp_query_cli = ["config.default.yml"]

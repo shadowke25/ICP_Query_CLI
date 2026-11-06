@@ -1,0 +1,16 @@
+# 默认配置（可被 ~/.config/icp-query/config.yml 或环境变量覆盖）
+network:
+  timeout: 15          # 单次 HTTP 超时（秒），渗透场景下快速失败
+  retries: 3           # 单目标最多尝试次数（每次重新过滑块）
+  proxy: null          # 默认代理，支持 http:// 与 socks5://
+
+captcha:
+  enable: true         # 关闭后使用内置 fallback sign，可能因过期失败
+  detail_concurrency: 3
+
+cache:
+  enable: true         # 缓存已签发的 token，减少一次鉴权往返
+  dir: null            # 默认 ~/.cache/icp-query
+
+output:
+  color: auto          # auto | always | never
